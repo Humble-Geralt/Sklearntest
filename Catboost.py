@@ -12,6 +12,9 @@ from catboost import CatBoostClassifier
 from sklearn.model_selection import GridSearchCV
 
 train=pd.read_csv("train.csv")
+print(train.shape)
+print(train.columns)
+print(train.info())
 testA=pd.read_csv("testA.csv")
 
 numerical_fea = list(train.select_dtypes(exclude=['object']).columns)
@@ -63,7 +66,7 @@ model=CatBoostClassifier(
             task_type="CPU",
             learning_rate=0.1,
             iterations=700,
-            random_seed=2020,
+            random_seed=2000,
             od_type="Iter",
             depth=7)
 
